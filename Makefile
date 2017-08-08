@@ -2,6 +2,7 @@
 default:
 
 build:
+	docker pull jenkins/jenkins
 	docker-compose build	
 
 start:
