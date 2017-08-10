@@ -8,7 +8,7 @@ This project allows you to quickly build a Jenkins (http://jenkins.io) environme
 
 In the next section we will cover how to configure the Jenkins Docker container (after you clone or download this project locally).
 
-## Configuring
+# Configuring
 
 Before running Jenkins for the first time you will want to update the ``docker-compose.yml`` file for your specific requirements as outlined below:
 
@@ -36,7 +36,7 @@ The following line in the ``volumes`` section maps the docker container's sock t
 
 `` - /var/run/docker.sock:/var/run/docker.sock        # Allow the container to run Docker on Docker ``
 
-## Running
+# Running
 
 The first time you run Jenkins using this setup you will need to build the image locally on your host. This project includes two ways to accomplish this goal. The easiest way is to simply type the following command within the project root:
 
@@ -62,7 +62,7 @@ or:
 
 ``docker-compose down`` 
 
-## Updating
+# Updating
 
 When a new version of Jenkins is released the easiest way to update your Docker image is to use the following ``make`` commands:
 
