@@ -6,11 +6,11 @@ This project allows you to quickly build a Jenkins (http://jenkins.io) environme
 * Install Maven (https://maven.apache.org/) in the container;
 * And install Docker (https://www.docker.com/) in the container.
 
-In the next section we will cover how to configure, install, and run Jenkins.
+In the next section we will cover how to configure the Jenkins Docker container (after you clone or download this project locally).
 
-## Configuration, Installation, and Running
+## Configuring
 
-Before installing and running Jenkins the first time you will want to update the `docker-compose.yml` file for your specific requirements as outlined below:
+Before running Jenkins for the first time you will want to update the ``docker-compose.yml`` file for your specific requirements as outlined below:
 
 **Time Zone**:
 
@@ -32,8 +32,72 @@ To persist your Jenkins home when the container restarts you will need to map a 
 
 **Docker**:
 
-
+The following line in the ``volumes`` section maps the docker container's sock to the host's to allow your Jenkins instance to access the host's Docker installation. If your host machine has docker installed in another location edit the first path to match the local location.
 
 `` - /var/run/docker.sock:/var/run/docker.sock        # Allow the container to run Docker on Docker ``
+
+## Running
+
+The first time you run Jenkins using this setup you will need to build the image locally on your host. This project includes two ways to accomplish this goal. The easiest way is to simply type the following command within the project root:
+
+``make build``
+
+You can also use the following Docker command:
+
+``docker-compose build``
+
+Once the image has completed building you can run it using the following command:
+
+``make start``
+
+or:
+
+``docker-compose up -d``
+
+If you need to stop your container you can use:
+
+``make stop``
+
+or:
+
+``docker-compose down`` 
+
+## Updating
+
+When a new version of Jenkins is released the easiest way to update your Docker image is to use the following ``make`` commands:
+
+```
+make stop
+make build
+make start
+```
+
+to retrieve and build the lastest version.
+
+Alternatively you could use the following Docker commands:
+
+```
+docker-compose down
+docker pull jenkins/jenkins
+docker-compose build
+docker-compose up -d
+```
+
+# License
+
+The content in this repository is Open Source material released under the Apache 2.0 License. Please see the [LICENSE](LICENSE) file for full license details.
+
+# Disclaimer
+
+The code in this repository is not sponsored or supported by Cloudbees, Inc.
+
+# Authors and Contributors 
+
+* Author: [Craig Vitter](https://github.com/cvitter)
+ 
+# Questions, Feedback, Pull Requests Etc.
+
+If you have any questions, feedback, suggestions, etc. please submit them via issues or, even better, submit a Pull Request!
+ 
 
 
