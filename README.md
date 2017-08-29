@@ -2,7 +2,7 @@
 
 This project allows you to quickly build a Jenkins (http://jenkins.io) environment that runs within a Docker container with persistent storage mapped to a local drive. This project:
 
-* Will install the latest Docker-ized version Jenkins (found at https://hub.docker.com/r/jenkins/jenkins/); 
+* Will install the latest Docker-ized version of Jenkins (found at https://hub.docker.com/r/jenkins/jenkins/); 
 * Install Maven (https://maven.apache.org/) in the container;
 * And install Docker (https://www.docker.com/) in the container.
 
